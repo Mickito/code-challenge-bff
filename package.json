@@ -1,0 +1,28 @@
+{
+  "name": "code-challenge-bff",
+  "version": "1.0.0",
+  "description": "Zeller code challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "ts-node src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mickito/code-challenge-bff.git"
+  },
+  "keywords": [],
+  "author": "Mick Sayboualay",
+  "license": "ISC",
+  "type": "commonjs",
+  "homepage": "https://github.com/Mickito/code-challenge-bff#readme",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.5.0",
+    "jest": "^30.3.0",
+    "ts-jest": "^29.4.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
