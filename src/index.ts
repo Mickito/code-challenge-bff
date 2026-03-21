@@ -1,15 +1,13 @@
 import { Checkout } from "./checkout/checkout";
-import { catalog } from "./item";
-import { BundlePricingRule } from "./rules/bundlePricingRule";
-import { BulkPricingRule } from "./rules/bulkPricingRule";
+import { catalog } from "./catalog/catalog";
+import { BundleDiscount, BulkDiscount } from "./rules";
 
-const atvBundlePricingRule = new BundlePricingRule("atv", 3, 2);
-const ipdBulkPricingRule = new BulkPricingRule("ipd", 4, 499.99);
-const pricingRules = [atvBundlePricingRule, ipdBulkPricingRule];
+const atvBundleDiscount = new BundleDiscount("atv", 3, 2);
+const ipdBulkDiscount = new BulkDiscount("ipd", 4, 499.99);
+const pricingRules = [atvBundleDiscount, ipdBulkDiscount];
 
 const co = new Checkout(pricingRules);
-co.scan(catalog["ipd"]);
-co.scan(catalog["mbp"]);
-co.scan(catalog["atv"]);
-co.scan(catalog["vga"]);
+co.scan(catalog.ipd);
+co.scan(catalog.mbp);
+
 console.log("Total expected: $" + co.total());
