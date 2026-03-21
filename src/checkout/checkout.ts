@@ -1,16 +1,18 @@
-import { Item, catalog, SKU } from "../item";
-import { PricingRule } from "../pricingRule";
+import { Item, catalog, SKU } from "../catalog/catalog";
+import { PricingRule } from "../rules";
 
 export class Checkout {
   private cartItems: Map<SKU, number> = new Map<SKU, number>();
-  private pricingRules: PricingRule[];
+  private readonly pricingRules: PricingRule[];
 
   constructor(pricingRules: PricingRule[]) {
     this.pricingRules = pricingRules;
   }
 
   scan(item: Item): void {
-    var quantity = this.cartItems.get(item.sku) ?? 0;
+    if (!catalog[item.sku]) throw new Error(`Cannot scan item: ${item.name}`);
+
+    const quantity = this.cartItems.get(item.sku) ?? 0;
     this.cartItems.set(item.sku, quantity + 1);
   }
 
@@ -26,6 +28,6 @@ export class Checkout {
       totalPrice += itemPrice * quantity;
     });
 
-    return totalPrice - totalDiscount;
+    return Math.round((totalPrice - totalDiscount) * 100) / 100;
   }
 }
