@@ -17,16 +17,15 @@ export class Checkout {
   }
 
   total(): number {
-    var totalDiscount = 0;
-    for (const pricingRule of this.pricingRules) {
-      totalDiscount += pricingRule.apply(this.cartItems);
-    }
+    let totalDiscount = this.pricingRules.reduce(
+      (total, rule) => total + rule.apply(this.cartItems),
+      0
+    );
 
-    var totalPrice = 0;
-    this.cartItems.forEach((quantity, sku) => {
-      const itemPrice = catalog[sku].price;
-      totalPrice += itemPrice * quantity;
-    });
+    let totalPrice = Array.from(this.cartItems.entries()).reduce(
+      (total, [sku, quantity]) => total + catalog[sku].price * quantity,
+      0
+    );
 
     return Math.round((totalPrice - totalDiscount) * 100) / 100;
   }
