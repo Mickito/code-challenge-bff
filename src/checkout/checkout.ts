@@ -3,11 +3,8 @@ import { PricingRule } from "../rules";
 
 export class Checkout {
   private cartItems: Map<SKU, number> = new Map<SKU, number>();
-  private readonly pricingRules: PricingRule[];
 
-  constructor(pricingRules: PricingRule[]) {
-    this.pricingRules = pricingRules;
-  }
+  constructor(private readonly pricingRules: PricingRule[]) {}
 
   scan(item: Item): void {
     if (!catalog[item.sku]) throw new Error(`Cannot scan item: ${item.name}`);
