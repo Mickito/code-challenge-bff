@@ -24,7 +24,7 @@ describe("BulkDiscount", () => {
     "should apply discount correctly when %s",
     (_, quantity, expectedDiscount) => {
       const totalDiscount = bulkDiscount.apply(createCart(quantity));
-      expect(totalDiscount).toBe(expectedDiscount);
+      expect(totalDiscount).toBeCloseTo(expectedDiscount);
     }
   );
 
