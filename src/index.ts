@@ -3,8 +3,8 @@ import { catalog } from "./catalog/catalog";
 import { BundleDiscount, BulkDiscount } from "./rules";
 
 // README example
-const atvBundleDiscount = new BundleDiscount("atv", 3, 2);
-const ipdBulkDiscount = new BulkDiscount("ipd", 4, 499.99);
+const atvBundleDiscount = new BundleDiscount(catalog.atv.sku, 3, 2);
+const ipdBulkDiscount = new BulkDiscount(catalog.ipd.sku, 4, 499.99);
 const pricingRules = [atvBundleDiscount, ipdBulkDiscount];
 
 const co = new Checkout(pricingRules);

@@ -2,7 +2,8 @@
   "name": "code-challenge-bff",
   "version": "1.0.0",
   "description": "Zeller code challenge",
-  "main": "index.js",
+  "private": true,
+  "main": "dist/index.js",
   "scripts": {
     "test": "jest --verbose",
     "build": "tsc",

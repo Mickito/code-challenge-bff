@@ -36,13 +36,13 @@ describe("BundleDiscount", () => {
     }
   );
 
-  test("should throw error when bundle threshold below 0", () => {
+  test("should throw error when bundle threshold is below 0", () => {
     expect(() => new BundleDiscount(catalog.ipd.sku, -1, 2)).toThrow(
       "bundle threshold must be greater than 0"
     );
   });
 
-  test("should throw error when pay quantity threshold below 0", () => {
+  test("should throw error when pay quantity threshold is below 0", () => {
     expect(() => new BundleDiscount(catalog.ipd.sku, 2, 0)).toThrow(
       "pay quantity must be greater than 0"
     );
