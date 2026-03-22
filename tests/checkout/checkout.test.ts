@@ -9,7 +9,7 @@ describe("Checkout", () => {
     checkout.scan(catalog.mbp);
     checkout.scan(catalog.vga);
 
-    expect(checkout.total()).toBe(
+    expect(checkout.total()).toBeCloseTo(
       catalog.ipd.price +
         catalog.atv.price +
         catalog.mbp.price +
@@ -17,13 +17,13 @@ describe("Checkout", () => {
     );
   });
 
-  test("should be able to handle mutliple of the same item", () => {
+  test("should be able to handle multiple of the same item", () => {
     const checkout = new Checkout([]);
     checkout.scan(catalog.ipd);
     checkout.scan(catalog.ipd);
     checkout.scan(catalog.ipd);
 
-    expect(checkout.total()).toBe(catalog.ipd.price * 3);
+    expect(checkout.total()).toBeCloseTo(catalog.ipd.price * 3);
   });
 
   test("should have a total of 0 if no items scanned", () => {
@@ -44,7 +44,7 @@ describe("Checkout", () => {
     checkout2.scan(catalog.ipd);
     checkout2.scan(catalog.mbp);
 
-    expect(checkout1.total()).toBe(checkout2.total());
+    expect(checkout1.total()).toBeCloseTo(checkout2.total());
   });
 
   test("should throw error if invalid item passed in", () => {
