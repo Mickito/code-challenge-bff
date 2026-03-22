@@ -18,6 +18,12 @@ The current catalog can be extended and currently includes:
 | atv     | Apple TV    | $109.50  |
 | vga     | VGA adapter | $30.00   |
 
+Assumptions
+-----------------
+- Applies only the largest discount per SKU when multiple rules exist for that SKU instead of stacking
+- Cart items must exist in the catalog and scanning unknown items throws an error
+- Using Jest for testing
+
 Installation
 -----------------
 Clone the repository and install dependencies:
@@ -33,9 +39,3 @@ Tech Stack
 -----------------
 - Language: TypeScript
 - Testing: Jest
-
-Assumption
------------------
-- Applies only the largest discount per SKU when multiple rules exist for that SKU instead of stacking
-- Cart items must exist in the catalog and scanning unknown items throws an error
-- Using Jest for testing
