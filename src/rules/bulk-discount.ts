@@ -27,6 +27,7 @@ export class BulkDiscount implements PricingRule {
     if (itemQuantity < this.discountThreshold) return 0;
 
     const currentPrice = catalog[this.sku].price;
-    return Math.max(0, currentPrice - this.newPrice) * itemQuantity;
+    const discount = currentPrice - this.newPrice;
+    return discount * itemQuantity;
   }
 }
