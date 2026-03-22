@@ -3,7 +3,7 @@ import { catalog } from "../../src/catalog/catalog";
 import { BundleDiscount, BulkDiscount } from "../../src/rules";
 
 describe("Checkout with Pricing Rules ", () => {
-  test("Should calculate total correctly for bundle discount", () => {
+  test("should calculate total correctly for bundle discount", () => {
     const atvBundleDiscount = new BundleDiscount(catalog.atv.sku, 3, 2);
     const co = new Checkout([atvBundleDiscount]);
     co.scan(catalog.atv);
@@ -12,7 +12,7 @@ describe("Checkout with Pricing Rules ", () => {
     expect(co.total()).toBeCloseTo(catalog.atv.price * 2);
   });
 
-  test("Should calculate total correctly for bulk discount", () => {
+  test("should calculate total correctly for bulk discount", () => {
     const ipdBulkDiscount = new BulkDiscount(catalog.ipd.sku, 4, 499.99);
     const co = new Checkout([ipdBulkDiscount]);
     co.scan(catalog.ipd);
