@@ -1,5 +1,5 @@
-import { BulkDiscount } from "../../src/rules";
-import { SKU, catalog } from "../../src/catalog/catalog";
+import { BulkDiscount } from "../../../src/rules";
+import { SKU, catalog } from "../../../src/catalog/catalog";
 
 describe("BulkDiscount", () => {
   const DISCOUNT = 100;

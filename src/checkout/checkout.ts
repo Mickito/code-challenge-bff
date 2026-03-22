@@ -14,10 +14,17 @@ export class Checkout {
   }
 
   total(): number {
-    let totalDiscount = this.pricingRules.reduce(
-      (total, rule) => total + rule.apply(this.cartItems),
-      0
-    );
+    let totalDiscount = 0;
+    for (const [sku, quantity] of this.cartItems.entries()) {
+      const maxDiscountForSku = Math.max(
+        0,
+        ...this.pricingRules.map((rule) =>
+          rule.apply(new Map([[sku, quantity]]))
+        )
+      );
+
+      totalDiscount += maxDiscountForSku;
+    }
 
     let totalPrice = Array.from(this.cartItems.entries()).reduce(
       (total, [sku, quantity]) => total + catalog[sku].price * quantity,

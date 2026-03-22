@@ -7,6 +7,8 @@ It supports scanning items in any order, calculating totals and applying flexibl
 - Bulk Discount: When you buy multiple units of the same item the system can lower the price per item.
 - Bundle Discount: When you buy multiple units of the same item the system can give free items.
 
+Future extensions could allow sequential stacking of discounts for the same SKU. Currently, only the highest discount is applied per SKU.
+
 The current catalog can be extended and currently includes:
 
 | SKU     | Name        | Price    |
@@ -31,3 +33,9 @@ Tech Stack
 -----------------
 - Language: TypeScript
 - Testing: Jest
+
+Assumption
+-----------------
+- Applies only the largest discount per SKU when multiple rules exist for that SKU instead of stacking
+- Cart items must exist in the catalog and scanning unknown items throws an error
+- Using Jest for testing

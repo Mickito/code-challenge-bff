@@ -1,5 +1,5 @@
-import { Checkout } from "../../src/checkout/checkout";
-import { catalog, Item } from "../../src/catalog/catalog";
+import { Checkout } from "../../../src/checkout/checkout";
+import { catalog, Item } from "../../../src/catalog/catalog";
 
 describe("Checkout", () => {
   test("should scan and calculate total correctly", () => {
