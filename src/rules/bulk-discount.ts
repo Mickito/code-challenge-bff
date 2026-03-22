@@ -22,8 +22,8 @@ export class BulkDiscount implements PricingRule {
     this.newPrice = newPrice;
   }
 
-  apply(items: Map<SKU, number>): number {
-    const itemQuantity = items.get(this.sku) ?? 0;
+  apply(cartItems: Map<SKU, number>): number {
+    const itemQuantity = cartItems.get(this.sku) ?? 0;
     if (itemQuantity < this.discountThreshold) return 0;
 
     const currentPrice = catalog[this.sku].price;
