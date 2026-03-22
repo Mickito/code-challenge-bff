@@ -1,5 +1,5 @@
-import { BundleDiscount } from "../../src/rules";
-import { SKU, catalog } from "../../src/catalog/catalog";
+import { BundleDiscount } from "../../../src/rules";
+import { SKU, catalog } from "../../../src/catalog/catalog";
 
 describe("BundleDiscount", () => {
   const createCart = (quantity: number) =>
